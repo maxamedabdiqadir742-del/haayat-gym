@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="so" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muqdisho Gym Plus | Xarunta Dhisidda Jirka ee Casriga ah</title>
+  <meta name="description" content="Xarunta ugu weyn uguna casrisan dhisidda jirka iyo caafimaadka ee Muqdisho (KM4, Taleex & Liido). Technogym, VIP 24/7, qeybta dumarka.">
+  
+  <!-- Favicon & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            volt: '#ccff00',
+            'volt-dark': '#b3e600',
+            obsidian: '#0b0d10',
+            'surface-dark': '#111317',
+            'surface-card': '#1a1d24',
+            'surface-border': '#262a33'
+          },
+          fontFamily: {
+            heading: ['"Barlow Condensed"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0b0d10; }
+    ::-webkit-scrollbar-thumb { background: #262a33; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ccff00; }
+  </style>
+</head>
+
+<body class="bg-obsidian text-slate-100 font-sans antialiased selection:bg-volt selection:text-black min-h-screen flex flex-col justify-between">
+
+  <!-- TOP ANNOUNCEMENT TICKER -->
+  <aside class="bg-volt text-black text-xs font-bold py-2 px-4 text-center tracking-wider uppercase flex items-center justify-center gap-2">
+    <span>🔥 DALABKA MAANTA: Qaado 1 Maalin oo Tijaabo Bilaash ah (Free 1-Day Pass) 3-da Laamood ee Muqdisho!</span>
+    <a href="#tijaabo" class="underline hover:text-slate-800 font-black ml-1">Hadda Qaado →</a>
+  </aside>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 bg-surface-dark/95 backdrop-blur border-b border-surface-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-lg bg-volt flex items-center justify-center text-black font-black text-2xl font-heading shadow-[0_0_15px_rgba(204,255,0,0.4)]">
+          M+
+        </div>
+        <div>
+          <span class="block font-heading text-2xl font-black tracking-wide text-white group-hover:text-volt transition">MUQDISHO GYM PLUS</span>
+          <span class="block text-[10px] tracking-widest text-slate-400 uppercase -mt-1">Xarunta Dhisidda Jirka • Muqdisho</span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAV -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold uppercase tracking-wider text-slate-300">
+        <a href="#home" class="hover:text-volt transition py-2">Bogga Hore</a>
+        <a href="#adeegyada" class="hover:text-volt transition py-2">Adeegyada</a>
+        <a href="#qiimaha" class="hover:text-volt transition py-2">Xubinnimada</a>
+        <a href="#jadwalka" class="hover:text-volt transition py-2">Jadwalka</a>
+        <a href="#laamaha" class="hover:text-volt transition py-2">Laamaha</a>
+        <a href="#faq" class="hover:text-volt transition py-2">Su'aalaha</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="tel:+252615000000" class="text-xs font-bold text-slate-300 hover:text-volt flex items-center gap-1.5 transition">
+          <span>📞 +252 61 500 0000</span>
+        </a>
+        <a href="#tijaabo" class="bg-volt hover:bg-volt-dark text-black font-heading font-black text-lg px-5 py-2.5 rounded tracking-wide transition shadow-[0_0_20px_rgba(204,255,0,0.3)]">
+          KU BIIR HADDA ⚡
+        </a>
+      </div>
+
+      <!-- MOBILE HAMBURGER -->
+      <button id="mobileMenuBtn" class="lg:hidden text-white hover:text-volt focus:outline-none p-2">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- MOBILE DROPDOWN -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-surface-dark border-b border-surface-border px-6 py-5 space-y-4 font-heading text-lg font-bold">
+      <a href="#home" onclick="toggleMenu()" class="block text-slate-200 hover:text-volt">BOGGA HORE</a>
+      <a href="#adeegyada" onclick="toggleMenu()" class="block text-slate-200 hover:text-volt">ADEEGYADA &amp; TABABARKA</a>
+      <a href="#qiimaha" onclick="toggleMenu()" class="block text-slate-200 hover:text-volt">XUBINNIMADA &amp; QIIMAHA</a>
+      <a href="#jadwalka" onclick="toggleMenu()" class="block text-slate-200 hover:text-volt">JADWALKA FASALLADA</a>
+      <a href="#laamaha" onclick="toggleMenu()" class="block text-slate-200 hover:text-volt">3-DA LAAMOOD EE MUQDISHO</a>
+      <a href="#faq" onclick="toggleMenu()" class="block text-slate-200 hover:text-volt">SU'AALAHA LA IS WEYDIIYO</a>
+      <div class="pt-3 border-t border-surface-border flex flex-col gap-3">
+        <a href="tel:+252615000000" class="text-sm text-volt font-sans font-semibold">📞 Wac: +252 61 500 0000</a>
+        <a href="#tijaabo" onclick="toggleMenu()" class="w-full text-center bg-volt text-black py-3 rounded font-black tracking-wide">KU BIIR HADDA ⚡</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home" class="relative py-20 lg:py-28 overflow-hidden border-b border-surface-border">
+      <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#ccff00_1px,transparent_1px)] [background-size:24px_24px]"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-card border border-surface-border text-xs uppercase font-semibold text-volt mb-6">
+            <span class="w-2 h-2 rounded-full bg-volt animate-ping"></span>
+            Muqdisho • 3 Xarumood oo Furan Hadda
+          </div>
+          <h1 class="font-heading text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-none">
+            JIDH DHISKA CASRIGA AH EE MUQDISHO — <span class="text-volt">AWOOD &amp; CAAFIMAAD</span>
+          </h1>
+          <p class="mt-6 text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl font-normal">
+            Qalabka ugu casrisan dalka (Technogym), macallimiin caalami ah oo shahaado leh, iyo jawi dhiirigelin leh oo loogu talagalay ragga iyo dumarka. Nala dhis jirkaaga maanta!
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#tijaabo" class="bg-volt hover:bg-volt-dark text-black font-heading font-black text-xl px-8 py-4 rounded tracking-wide transition shadow-[0_0_25px_rgba(204,255,0,0.4)]">
+              BILAAW MAANTA (FREE PASS) ⚡
+            </a>
+            <a href="https://wa.me/252627000000?text=Asc%20Muqdisho%20Gym%20Plus,%20waxaan%20rabaa%20faahfaahin" target="_blank" class="bg-surface-card hover:bg-surface-border text-white border border-surface-border font-heading font-bold text-xl px-7 py-4 rounded tracking-wide transition flex items-center gap-2">
+              <span class="text-green-400">💬</span> FARIN WHATSAPP
+            </a>
+          </div>
+
+          <!-- KEY STATS -->
+          <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="bg-surface-card/70 p-4 rounded-lg border border-surface-border backdrop-blur">
+              <div class="font-heading text-3xl font-black text-volt">3 LAAMOOD</div>
+              <div class="text-xs text-slate-400 mt-0.5">KM4, Taleex &amp; Liido</div>
+            </div>
+            <div class="bg-surface-card/70 p-4 rounded-lg border border-surface-border backdrop-blur">
+              <div class="font-heading text-3xl font-black text-volt">25+ MACALLIN</div>
+              <div class="text-xs text-slate-400 mt-0.5">Shahaado Caalami ah</div>
+            </div>
+            <div class="bg-surface-card/70 p-4 rounded-lg border border-surface-border backdrop-blur">
+              <div class="font-heading text-3xl font-black text-volt">60+ QALAB</div>
+              <div class="text-xs text-slate-400 mt-0.5">Technogym Pure Strength</div>
+            </div>
+            <div class="bg-surface-card/70 p-4 rounded-lg border border-surface-border backdrop-blur">
+              <div class="font-heading text-3xl font-black text-volt">24/7 VIP</div>
+              <div class="text-xs text-slate-400 mt-0.5">Furitaanka Xubnaha</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="adeegyada" class="py-20 bg-surface-dark border-b border-surface-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-volt font-bold text-xs uppercase tracking-widest">Barnaamijyada &amp; Qaybaha</span>
+          <h2 class="font-heading text-4xl sm:text-5xl font-black uppercase text-white mt-2">
+            ADEEGYADA AAN BIXINNO
+          </h2>
+          <p class="text-slate-400 text-sm mt-3">Qaybo si gaar ah loo habeeyay oo ku habboon qof walba heerkiisa jimicsi.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-surface-card p-7 rounded-xl border border-surface-border hover:border-volt/60 transition group">
+            <div class="text-3xl mb-4 text-volt font-heading font-black">01 // DHISIDDA MURQAHA</div>
+            <h3 class="font-heading text-2xl font-black text-white group-hover:text-volt transition">Strength &amp; Hypertrophy</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Qalabka biraha culus (Free Weights), Eleiko Olympic Barbells, iyo Technogym Pure Strength machines oo loogu talagalay awood iyo muruq korriin buuxa.
+            </p>
+          </div>
+          <div class="bg-surface-card p-7 rounded-xl border border-surface-border hover:border-volt/60 transition group">
+            <div class="text-3xl mb-4 text-volt font-heading font-black">02 // QAYBTA DUMARKA</div>
+            <h3 class="font-heading text-2xl font-black text-white group-hover:text-volt transition">Ladies Only Fitness</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Qolal gooni ah oo gaar u ah haweenka, macallimiin dumar ah, jawi asturan oo ammaan ah, qalab casri ah, iyo fasallada aerobics-ka iyo zumba.
+            </p>
+          </div>
+          <div class="bg-surface-card p-7 rounded-xl border border-surface-border hover:border-volt/60 transition group">
+            <div class="text-3xl mb-4 text-volt font-heading font-black">03 // TABABAR GAAR AH (PT)</div>
+            <h3 class="font-heading text-2xl font-black text-white group-hover:text-volt transition">1-on-1 Personal Training</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Macallin shaqsi ah oo kula socda maalin kasta, cabbiraadda jirka (InBody Test), iyo qorshe cunto oo gaar ah (Nutrition &amp; Diet Plan).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 BRANCHES -->
+    <section id="laamaha" class="py-20 border-b border-surface-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-volt font-bold text-xs uppercase tracking-widest">Goobaha &amp; Xarumaha</span>
+          <h2 class="font-heading text-4xl sm:text-5xl font-black uppercase text-white mt-2">
+            3-DA XARUMOOD EE MAGAALADA MUQDISHO
+          </h2>
+          <p class="text-slate-400 text-sm mt-3">Dooro xarunta kuugu dhow. Dhammaan xarumaha waxaay leeyihiin Technogym, qeybta dumarka, iyo baarkin ku filan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- KM4 -->
+          <div class="bg-surface-card rounded-xl border border-surface-border hover:border-volt/60 transition p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="bg-volt text-black text-[11px] font-black px-2.5 py-1 rounded uppercase">Xarunta Weyn - Flagship</span>
+                <span class="text-xs text-volt font-bold">● 24/7 VIP Furan</span>
+              </div>
+              <h3 class="font-heading text-3xl font-black text-white">LAANTA KM4</h3>
+              <p class="text-slate-400 text-xs mt-1">📍 Isgoyska KM4, Wadada Maka Al-Mukarama</p>
+              <div class="mt-4 space-y-2 text-xs text-slate-300">
+                <div class="flex items-center gap-2">✓ Technogym Pure Strength Lab</div>
+                <div class="flex items-center gap-2">✓ Qaybta Dumarka oo Gaar ah</div>
+                <div class="flex items-center gap-2">✓ Sauna &amp; Ice Plunge Pool</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-surface-border flex items-center justify-between">
+              <span class="text-xs text-slate-400">📞 +252 61 500 0000</span>
+              <a href="https://maps.google.com" target="_blank" class="text-xs font-bold text-volt hover:underline">Khariidadda →</a>
+            </div>
+          </div>
+
+          <!-- Taleex -->
+          <div class="bg-surface-card rounded-xl border border-surface-border hover:border-volt/60 transition p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="bg-slate-700 text-white text-[11px] font-bold px-2.5 py-1 rounded uppercase">Xoogga &amp; Hodanka</span>
+                <span class="text-xs text-slate-400">05:30 AM - 10:30 PM</span>
+              </div>
+              <h3 class="font-heading text-3xl font-black text-white">LAANTA TALEEX</h3>
+              <p class="text-slate-400 text-xs mt-1">📍 Dhismaha Al-Khayr, KM5 &amp; Taleex</p>
+              <div class="mt-4 space-y-2 text-xs text-slate-300">
+                <div class="flex items-center gap-2">✓ Olympic Lifting Platforms (Eleiko)</div>
+                <div class="flex items-center gap-2">✓ CrossFit Zone &amp; Functional Turf</div>
+                <div class="flex items-center gap-2">✓ Tababare Gaar ah (1-on-1)</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-surface-border flex items-center justify-between">
+              <span class="text-xs text-slate-400">📞 +252 61 700 1122</span>
+              <a href="https://maps.google.com" target="_blank" class="text-xs font-bold text-volt hover:underline">Khariidadda →</a>
+            </div>
+          </div>
+
+          <!-- Liido -->
+          <div class="bg-surface-card rounded-xl border border-surface-border hover:border-volt/60 transition p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 text-[11px] font-bold px-2.5 py-1 rounded uppercase">Xeebta &amp; Fitness-ka</span>
+                <span class="text-xs text-slate-400">06:00 AM - 11:00 PM</span>
+              </div>
+              <h3 class="font-heading text-3xl font-black text-white">LAANTA LIIDO</h3>
+              <p class="text-slate-400 text-xs mt-1">📍 Wadada Xeebta Liido, Cabdulcasiis</p>
+              <div class="mt-4 space-y-2 text-xs text-slate-300">
+                <div class="flex items-center gap-2">✓ Cardio &amp; Sea Breeze Open Air</div>
+                <div class="flex items-center gap-2">✓ Fresh Protein Shake &amp; Coffee Bar</div>
+                <div class="flex items-center gap-2">✓ Qaybta Dumarka oo u Jeedda Badda</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-surface-border flex items-center justify-between">
+              <span class="text-xs text-slate-400">📞 +252 61 800 3344</span>
+              <a href="https://maps.google.com" target="_blank" class="text-xs font-bold text-volt hover:underline">Khariidadda →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="qiimaha" class="py-20 bg-surface-dark border-b border-surface-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-volt font-bold text-xs uppercase tracking-widest">Qorshayaasha Xubinnimada</span>
+          <h2 class="font-heading text-4xl sm:text-5xl font-black uppercase text-white mt-2">
+            DOORO QORSHAHA KUU HABBOON
+          </h2>
+          <p class="text-slate-400 text-sm mt-3">Qiime hufan oo cad oo aan lahayn kharashyo qarsoon. Guji qorshe si aad isla markiiba u bilowdo.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          <!-- BASIC -->
+          <div class="bg-surface-card rounded-xl border border-surface-border p-8 flex flex-col justify-between hover:border-slate-500 transition">
+            <div>
+              <h3 class="font-heading text-2xl font-black text-white">STANDARD (BIL KASTA)</h3>
+              <p class="text-xs text-slate-400 mt-1">Ku habboon qofka raba bilawga caadiga ah</p>
+              <div class="mt-6 flex items-baseline gap-1">
+                <span class="font-heading text-5xl font-black text-white">$25</span>
+                <span class="text-slate-400 text-xs">/ Bishiiba</span>
+              </div>
+              <ul class="mt-6 space-y-3 text-xs text-slate-300">
+                <li>✓ Helitaanka 1 Laamood (KM4 ama Taleex ama Liido)</li>
+                <li>✓ Qalabka jimicsiga oo dhan (Cardio &amp; Weights)</li>
+                <li>✓ Qolalka labiska iyo qubayska nadiifka ah</li>
+                <li class="text-slate-500">✗ Tababare gaar ah (PT)</li>
+                <li class="text-slate-500">✗ Sauna &amp; Ice Plunge</li>
+              </ul>
+            </div>
+            <button onclick="selectPlan('Standard ($25/bax)')" class="mt-8 w-full py-3 rounded border border-volt text-volt hover:bg-volt hover:text-black font-heading font-black tracking-wide transition text-lg">
+              DOORO QORSHAHAN
+            </button>
+          </div>
+
+          <!-- VIP -->
+          <div class="bg-surface-card rounded-xl border-2 border-volt p-8 relative flex flex-col justify-between shadow-[0_0_30px_rgba(204,255,0,0.15)]">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-volt text-black text-[11px] font-black uppercase px-4 py-1 rounded-full">
+              UGU CAANSAN • BEST VALUE
+            </div>
+            <div>
+              <h3 class="font-heading text-2xl font-black text-white">VIP ALL-ACCESS</h3>
+              <p class="text-xs text-slate-400 mt-1">Helitaanka 3-da laamood 24/7 &amp; Fasallada</p>
+              <div class="mt-6 flex items-baseline gap-1">
+                <span class="font-heading text-5xl font-black text-volt">$45</span>
+                <span class="text-slate-400 text-xs">/ Bishiiba</span>
+              </div>
+              <ul class="mt-6 space-y-3 text-xs text-slate-200">
+                <li>✓ Helitaanka DHAMMAAN 3-da Laamood (KM4, Taleex, Liido)</li>
+                <li>✓ Furitaanka 24 Saac (24/7 VIP Access)</li>
+                <li>✓ Fasallada HIIT, CrossFit &amp; Spinning</li>
+                <li>✓ Sauna, Steam Room &amp; Ice Plunge</li>
+                <li>✓ Qorshe cunto oo bilaw ah (Nutrition Guide)</li>
+              </ul>
+            </div>
+            <button onclick="selectPlan('VIP All-Access ($45/bax)')" class="mt-8 w-full py-3.5 rounded bg-volt text-black hover:bg-volt-dark font-heading font-black tracking-wide transition text-lg shadow-[0_0_15px_rgba(204,255,0,0.3)]">
+              IS DIIWAANGELI HADDA ⚡
+            </button>
+          </div>
+
+          <!-- ANNUAL PRO -->
+          <div class="bg-surface-card rounded-xl border border-surface-border p-8 flex flex-col justify-between hover:border-slate-500 transition">
+            <div>
+              <h3 class="font-heading text-2xl font-black text-white">SANADLE (ANNUAL PRO)</h3>
+              <p class="text-xs text-slate-400 mt-1">2 Bilood oo bilaash ah + Tababare shaqsi ah</p>
+              <div class="mt-6 flex items-baseline gap-1">
+                <span class="font-heading text-5xl font-black text-white">$420</span>
+                <span class="text-slate-400 text-xs">/ Sanadkii ($35/mo)</span>
+              </div>
+              <ul class="mt-6 space-y-3 text-xs text-slate-300">
+                <li>✓ Dhammaan faa'iidooyinka VIP All-Access</li>
+                <li>✓ 5 Kalfadhi oo Tababare Khaas ah (Personal Trainer)</li>
+                <li>✓ Baaritaanka jirka oo bilaash ah (InBody Scan)</li>
+                <li>✓ Boorso iyo shukumaan bilaash ah</li>
+                <li>✓ Hakinta xubinnimada ilaa 45 maalmood</li>
+              </ul>
+            </div>
+            <button onclick="selectPlan('Sanadle Annual Pro ($420/sanad)')" class="mt-8 w-full py-3 rounded border border-volt text-volt hover:bg-volt hover:text-black font-heading font-black tracking-wide transition text-lg">
+              DOORO QORSHAHAN
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE (INTERACTIVE DAYS) -->
+    <section id="jadwalka" class="py-20 border-b border-surface-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-volt font-bold text-xs uppercase tracking-widest">Waqtiyada Fasallada</span>
+          <h2 class="font-heading text-4xl sm:text-5xl font-black uppercase text-white mt-2">
+            JADWALKA FASALLADA TODDOBAADKA
+          </h2>
+          <p class="text-slate-400 text-sm mt-3">Guji maalinta aad rabto si aad u aragto fasallada socda.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-8" id="scheduleTabs">
+          <button onclick="filterDay('sabti')" class="schedule-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-wider bg-volt text-black transition">Sabti</button>
+          <button onclick="filterDay('axad')" class="schedule-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-wider bg-surface-card text-slate-300 hover:text-white transition">Axad</button>
+          <button onclick="filterDay('isniin')" class="schedule-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-wider bg-surface-card text-slate-300 hover:text-white transition">Isniin</button>
+          <button onclick="filterDay('talaado')" class="schedule-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-wider bg-surface-card text-slate-300 hover:text-white transition">Talaado</button>
+          <button onclick="filterDay('arbaco')" class="schedule-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-wider bg-surface-card text-slate-300 hover:text-white transition">Arbaco</button>
+          <button onclick="filterDay('khamiis')" class="schedule-btn px-4 py-2 rounded text-xs font-bold uppercase tracking-wider bg-surface-card text-slate-300 hover:text-white transition">Khamiis</button>
+        </div>
+
+        <div class="bg-surface-card rounded-xl border border-surface-border overflow-hidden">
+          <div class="divide-y divide-surface-border" id="scheduleList">
+            <div class="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-surface-dark/50 transition">
+              <div class="flex items-center gap-4">
+                <span class="text-volt font-heading font-black text-xl">06:00 AM - 07:15 AM</span>
+                <div>
+                  <h4 class="font-heading text-xl font-bold text-white">HIIT &amp; Fat Burn Morning</h4>
+                  <p class="text-xs text-slate-400">Macallin: Cabdiqani • KM4 Flagship</p>
+                </div>
+              </div>
+              <span class="self-start sm:self-auto px-3 py-1 bg-surface-dark border border-volt/40 text-volt text-xs font-bold rounded">Ragga &amp; Dumarka</span>
+            </div>
+            <div class="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-surface-dark/50 transition">
+              <div class="flex items-center gap-4">
+                <span class="text-volt font-heading font-black text-xl">09:00 AM - 10:30 AM</span>
+                <div>
+                  <h4 class="font-heading text-xl font-bold text-white">Aerobics &amp; Core (Qaybta Dumarka)</h4>
+                  <p class="text-xs text-slate-400">Macallimad: Shukri Cali • Taleex</p>
+                </div>
+              </div>
+              <span class="self-start sm:self-auto px-3 py-1 bg-pink-950 border border-pink-700 text-pink-300 text-xs font-bold rounded">Dumarka Kaliya</span>
+            </div>
+            <div class="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-surface-dark/50 transition">
+              <div class="flex items-center gap-4">
+                <span class="text-volt font-heading font-black text-xl">05:30 PM - 07:00 PM</span>
+                <div>
+                  <h4 class="font-heading text-xl font-bold text-white">Powerlifting &amp; Strength Camp</h4>
+                  <p class="text-xs text-slate-400">Macallin: Maxamed Xasan • Taleex (Eleiko Zone)</p>
+                </div>
+              </div>
+              <span class="self-start sm:self-auto px-3 py-1 bg-surface-dark border border-volt/40 text-volt text-xs font-bold rounded">Ragga</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREE PASS FORM -->
+    <section id="tijaabo" class="py-20 bg-surface-dark border-b border-surface-border">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-surface-card border border-volt/50 rounded-2xl p-8 sm:p-12 shadow-[0_0_40px_rgba(204,255,0,0.1)]">
+          <div class="text-center max-w-xl mx-auto mb-8">
+            <span class="bg-volt text-black text-xs font-black px-3 py-1 rounded uppercase">100% Lacag La'aan (Free 1-Day Pass)</span>
+            <h2 class="font-heading text-4xl sm:text-5xl font-black uppercase text-white mt-3">
+              QAADO MAALIN TIJAABO OO BILAASH AH!
+            </h2>
+            <p class="text-slate-300 text-sm mt-2">
+              Kaliya buuxi foomkan, waxaadna isla markiiba WhatsApp ku helaysaa tigidhkaaga tijaabada ah.
+            </p>
+          </div>
+
+          <form id="passForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Magacaaga oo Buuxa *</label>
+                <input type="text" id="formName" required placeholder="Tusaale: Axmed Cali Maxamed" class="w-full bg-obsidian border border-surface-border focus:border-volt rounded px-4 py-3 text-white text-sm focus:outline-none transition">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Lambarka Taleefanka *</label>
+                <input type="tel" id="formPhone" required placeholder="+252 61 XXX XXXX" class="w-full bg-obsidian border border-surface-border focus:border-volt rounded px-4 py-3 text-white text-sm focus:outline-none transition">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Dooro Laanta Kuugu Dhow *</label>
+                <select id="formBranch" class="w-full bg-obsidian border border-surface-border focus:border-volt rounded px-4 py-3 text-white text-sm focus:outline-none transition">
+                  <option value="km4">Laanta KM4 (Flagship &amp; 24/7)</option>
+                  <option value="taleex">Laanta Taleex (KM5 &amp; Al-Khayr)</option>
+                  <option value="liido">Laanta Liido (Xeebta Liido)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Qaybta Aad Xiisaynayso *</label>
+                <select id="formCategory" class="w-full bg-obsidian border border-surface-border focus:border-volt rounded px-4 py-3 text-white text-sm focus:outline-none transition">
+                  <option value="ragga">Dhisidda Murqaha (Ragga)</option>
+                  <option value="dumarka">Qaybta Dumarka oo Gaar ah</option>
+                  <option value="hiit">Dhimista Miisaanka &amp; HIIT</option>
+                  <option value="pt">Tababare Khaas ah (Personal Trainer)</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="w-full bg-volt hover:bg-volt-dark text-black font-heading font-black text-2xl py-4 rounded tracking-wide transition shadow-[0_0_20px_rgba(204,255,0,0.4)]">
+              HEL KAARKA BILAASHKA AH (DIR) ⚡
+            </button>
+          </form>
+
+          <div id="formSuccess" class="hidden mt-6 p-5 rounded bg-green-950/80 border border-green-500 text-green-200 text-center text-sm font-semibold">
+            🎉 <span class="font-bold">Hambalyo!</span> Xogtaadii si guul leh ayaa loo gudbiyay. Tigidhkaaga tijaabada ah ee bilaashka ah waxaa laguugu soo dirayaa WhatsApp 15 daqiiqo gudahood!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 border-b border-surface-border">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-xl mx-auto mb-12">
+          <span class="text-volt font-bold text-xs uppercase tracking-widest">Su'aalaha Badanaa La Isweydiiyo</span>
+          <h2 class="font-heading text-4xl sm:text-5xl font-black uppercase text-white mt-2">
+            FAQ &amp; Jawaabaha Degdegga ah
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-surface-card rounded-lg border border-surface-border overflow-hidden">
+            <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-heading text-xl font-bold text-white flex justify-between items-center focus:outline-none">
+              <span>Miyaan bilaabi karaa isla maanta?</span>
+              <span id="faqIcon-1" class="text-volt text-2xl">+</span>
+            </button>
+            <div id="faqAnswer-1" class="hidden px-5 pb-5 text-sm text-slate-300 leading-relaxed">
+              Haa, isla markaad is-diiwaangeliso ama aad qaadato kaarka tijaabada ah, waxaad toos u iman kartaa xarunta kuugu dhow (KM4, Taleex, ama Liido). Waxaa ku qaabili doona shaqaalaha maamulka si ay kuu siiyaan furihiisa.
+            </div>
+          </div>
+          <div class="bg-surface-card rounded-lg border border-surface-border overflow-hidden">
+            <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-heading text-xl font-bold text-white flex justify-between items-center focus:outline-none">
+              <span>Qaybta dumarku ma tahay mid asturan oo gaar ah?</span>
+              <span id="faqIcon-2" class="text-volt text-2xl">+</span>
+            </button>
+            <div id="faqAnswer-2" class="hidden px-5 pb-5 text-sm text-slate-300 leading-relaxed">
+              Haa, dhammaan 3-da xarumood waxay leeyihiin hoolal u gaar ah haweenka oo 100% asturan, leh qubaysyo gooni ah, waxaana tababarka bixiya macallimiin dumar ah oo shahaado leh.
+            </div>
+          </div>
+          <div class="bg-surface-card rounded-lg border border-surface-border overflow-hidden">
+            <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-heading text-xl font-bold text-white flex justify-between items-center focus:outline-none">
+              <span>Sidee loo bixiyaa lacagta xubinnimada?</span>
+              <span id="faqIcon-3" class="text-volt text-2xl">+</span>
+            </button>
+            <div id="faqAnswer-3" class="hidden px-5 pb-5 text-sm text-slate-300 leading-relaxed">
+              Waxaad si fudud ugu bixin kartaa EVC Plus, Zaad, Sahal, ama kaarka bangiga (Premier Bank / IBS) adigoo jooga miiska soo dhoweynta ee gym-ka.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-obsidian border-t border-surface-border py-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="font-heading text-2xl font-black text-white">MUQDISHO GYM PLUS</div>
+        <p class="mt-2 text-slate-400 leading-relaxed">
+          Xarunta koowaad ee jimicsiga casriga ah ee magaalada Muqdisho. Awood, firfircooni, iyo caafimaad buuxa.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white uppercase tracking-wider mb-3">Xiriirka Laamaha</h4>
+        <p>📞 KM4: +252 61 500 0000</p>
+        <p class="mt-1">📞 Taleex: +252 61 700 1122</p>
+        <p class="mt-1">📞 Liido: +252 61 800 3344</p>
+        <p class="mt-1">✉️ info@muqdishogymplus.so</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white uppercase tracking-wider mb-3">Saacadaha Shaqada</h4>
+        <p>Sabti - Khamiis: 05:00 AM - 11:00 PM</p>
+        <p class="mt-1">Jimce: 02:00 PM - 10:00 PM</p>
+        <p class="mt-1 text-volt font-bold">Xubnaha VIP: 24 Saac / 7 Maalmood</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-white uppercase tracking-wider mb-3">WhatsApp Toos ah</h4>
+        <p class="mb-3">Kala hadal maamulka wixii su'aalo ah:</p>
+        <a href="https://wa.me/252627000000?text=Asc%20Muqdisho%20Gym%20Plus" target="_blank" class="inline-flex items-center gap-2 bg-[#25D366] text-black font-bold px-4 py-2 rounded text-xs hover:opacity-90 transition">
+          <span>💬</span> +252 62 700 0000
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-surface-border text-center text-slate-500">
+      © 2025 Muqdisho Gym Plus. Dhammaan xuquuqaha way dhowran yihiin.
+    </div>
+  </footer>
+
+  <!-- BROWSER JAVASCRIPT LOGIC -->
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+    function toggleMenu() {
+      menu.classList.add('hidden');
+    }
+
+    const scheduleData = {
+      sabti: [
+        { time: '06:00 AM - 07:15 AM', title: 'HIIT & Fat Burn Morning', coach: 'Cabdiqani • KM4 Flagship', tag: 'Ragga & Dumarka', color: 'volt' },
+        { time: '09:00 AM - 10:30 AM', title: 'Aerobics & Core (Qaybta Dumarka)', coach: 'Shukri Cali • Taleex', tag: 'Dumarka Kaliya', color: 'pink' },
+        { time: '05:30 PM - 07:00 PM', title: 'Powerlifting & Strength Camp', coach: 'Maxamed Xasan • Taleex', tag: 'Ragga', color: 'volt' }
+      ],
+      axad: [
+        { time: '06:30 AM - 07:45 AM', title: 'CrossFit WOD Endurance', coach: 'Jaamac Cali • KM4', tag: 'Ragga & Dumarka', color: 'volt' },
+        { time: '04:00 PM - 05:30 PM', title: 'Ladies Zumba & Dance Fitness', coach: 'Maryan Nuur • Liido', tag: 'Dumarka Kaliya', color: 'pink' },
+        { time: '07:00 PM - 08:30 PM', title: 'Hypertrophy Chest & Arms', coach: 'Khaalid • KM4', tag: 'Ragga', color: 'volt' }
+      ],
+      isniin: [
+        { time: '06:00 AM - 07:15 AM', title: 'Spinning & Cardio Blast', coach: 'Liibaan • Liido Beach', tag: 'Ragga & Dumarka', color: 'volt' },
+        { time: '10:00 AM - 11:30 AM', title: 'Pilates & Flexibility (Dumarka)', coach: 'Shukri Cali • KM4', tag: 'Dumarka Kaliya', color: 'pink' },
+        { time: '06:00 PM - 07:30 PM', title: 'Legs & Squat Mastery Camp', coach: 'Maxamed Xasan • Taleex', tag: 'Ragga', color: 'volt' }
+      ],
+      talaado: [
+        { time: '06:30 AM - 07:45 AM', title: 'Functional Bodyweight & Core', coach: 'Cabdiqani • KM4', tag: 'Ragga & Dumarka', color: 'volt' },
+        { time: '04:30 PM - 06:00 PM', title: 'Bootcamp & Tone (Dumarka)', coach: 'Maryan Nuur • Taleex', tag: 'Dumarka Kaliya', color: 'pink' },
+        { time: '07:00 PM - 08:30 PM', title: 'Deadlift & Back Workshop', coach: 'Khaalid • Taleex', tag: 'Ragga', color: 'volt' }
+      ],
+      arbaco: [
+        { time: '06:00 AM - 07:15 AM', title: 'HIIT Circuit & Conditioning', coach: 'Liibaan • Liido', tag: 'Ragga & Dumarka', color: 'volt' },
+        { time: '09:30 AM - 11:00 AM', title: 'Yoga & Stress Relief (Dumarka)', coach: 'Shukri Cali • KM4', tag: 'Dumarka Kaliya', color: 'pink' },
+        { time: '05:30 PM - 07:00 PM', title: 'Olympic Clean & Jerk Tech', coach: 'Maxamed Xasan • Taleex', tag: 'Ragga', color: 'volt' }
+      ],
+      khamiis: [
+        { time: '06:30 AM - 08:00 AM', title: 'Full Body Challenge Weekend Pre', coach: 'Cabdiqani • KM4', tag: 'Ragga & Dumarka', color: 'volt' },
+        { time: '03:30 PM - 05:00 PM', title: 'Aerobics Special (Dumarka)', coach: 'Maryan Nuur • Liido', tag: 'Dumarka Kaliya', color: 'pink' },
+        { time: '06:30 PM - 08:00 PM', title: 'Open Gym & Coach Support', coach: 'Dhammaan Macallimiinta', tag: 'Dhammaan Xubnaha', color: 'volt' }
+      ]
+    };
+
+    function filterDay(day) {
+      const buttons = document.querySelectorAll('.schedule-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-volt', 'text-black');
+        btn.classList.add('bg-surface-card', 'text-slate-300');
+      });
+      event.target.classList.remove('bg-surface-card', 'text-slate-300');
+      event.target.classList.add('bg-volt', 'text-black');
+
+      const list = document.getElementById('scheduleList');
+      const items = scheduleData[day] || scheduleData['sabti'];
+      list.innerHTML = items.map(item => `
+        <div class="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-surface-dark/50 transition">
+          <div class="flex items-center gap-4">
+            <span class="text-volt font-heading font-black text-xl">${item.time}</span>
+            <div>
+              <h4 class="font-heading text-xl font-bold text-white">${item.title}</h4>
+              <p class="text-xs text-slate-400">Macallin: ${item.coach}</p>
+            </div>
+          </div>
+          <span class="self-start sm:self-auto px-3 py-1 ${item.color === 'pink' ? 'bg-pink-950 border border-pink-700 text-pink-300' : 'bg-surface-dark border border-volt/40 text-volt'} text-xs font-bold rounded">${item.tag}</span>
+        </div>
+      `).join('');
+    }
+
+    function selectPlan(planName) {
+      const formSection = document.getElementById('tijaabo');
+      formSection.scrollIntoView({ behavior: 'smooth' });
+      alert('Waxaad dooratay qorshaha: ' + planName + '\nFadlan buuxi foomka hoose si aad u hesho xaqiijinta xubinnimadaada!');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('passForm');
+      const success = document.getElementById('formSuccess');
+      form.classList.add('opacity-40', 'pointer-events-none');
+      success.classList.remove('hidden');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function toggleFaq(id) {
+      const answer = document.getElementById(`faqAnswer-${id}`);
+      const icon = document.getElementById(`faqIcon-${id}`);
+      if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        icon.textContent = '−';
+      } else {
+        answer.classList.add('hidden');
+        icon.textContent = '+';
+      }
+    }
+  </script>
+</body>
+</html>
